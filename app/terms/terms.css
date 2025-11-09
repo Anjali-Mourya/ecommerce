@@ -1,0 +1,43 @@
+.main-container {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Hero Section */
+.terms-hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.terms-hero h1 {
+  font-size: 2.5rem;
+}
+
+.terms-hero p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content Section */
+.terms-content {
+  padding: 4rem 1.5rem;
+  color: #444;
+}
+
+.terms-content h2 {
+  color: #222;
+}
+
+.terms-content p {
+  margin-bottom: 1.2rem;
+  line-height: 1.8;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+  .terms-content {
+    padding: 6rem 3rem;
+  }
+}

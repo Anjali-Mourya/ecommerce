@@ -1,0 +1,94 @@
+.products-page {
+  padding: 20px;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.products-page h1 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Add product form */
+.add-product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.add-product input {
+  flex: 1;
+  min-width: 150px;
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.add-product button {
+  background: #10b981;
+  border: none;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-product button:hover {
+  background: #059669;
+}
+
+/* Products table */
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.products-table th,
+.products-table td {
+  padding: 12px;
+  border: 1px solid #e5e7eb;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.products-table th {
+  background: #f3f4f6;
+}
+
+.products-table button {
+  background: #ef4444;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.products-table button:hover {
+  background: #dc2626;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .add-product {
+    flex-direction: column;
+  }
+  .products-table {
+    display: block;
+    overflow-x: auto;
+  }
+  .products-table th, .products-table td {
+    font-size: 0.85rem;
+  }
+}

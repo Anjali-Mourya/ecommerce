@@ -1,0 +1,151 @@
+/* === Container === */
+.contact-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Inter", system-ui, sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .contact-container {
+    margin: 2rem 1rem;
+    padding: 1.5rem;
+  }
+}
+
+/* === Header === */
+.contact-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.contact-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.contact-header p {
+  font-size: 1rem;
+  color: #555;
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* === Form === */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #222;
+  font-size: 0.95rem;
+}
+
+/* Inputs */
+.input,
+.textarea {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+  background-color: #fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #0070f3;
+  box-shadow: 0 0 0 4px rgba(0, 112, 243, 0.1);
+  outline: none;
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+/* Error state */
+.error {
+  border-color: #e63946 !important;
+}
+
+.error-message {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: #e63946;
+  font-weight: 500;
+}
+
+/* === Button === */
+.button {
+  background: linear-gradient(135deg, #0070f3, #005bb5);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #005bb5, #003f88);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 91, 181, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* === Status Messages === */
+.status {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+}
+
+.status:not(.error-status) {
+  background: #e6f9f3;
+  color: #0f9d58;
+  border: 1px solid #a6e4d2;
+}
+
+.error-status {
+  background: #fdecea;
+  color: #d93025;
+  border: 1px solid #f5b5b0;
+}
+
+/* === Mobile tweaks === */
+@media (max-width: 480px) {
+  .contact-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+}

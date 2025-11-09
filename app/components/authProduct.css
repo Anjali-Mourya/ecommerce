@@ -1,0 +1,86 @@
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.add-to-cart-btn, .buy-now-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.add-to-cart-btn {
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #d1d5db;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+.add-to-cart-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.add-to-cart-btn.disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.add-to-cart-btn.disabled:hover {
+  background-color: #d1d5db;
+  transform: none;
+}
+
+.buy-now-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+}
+
+.buy-now-btn:hover {
+  background-color: #4168d3;
+  transform: translateY(-2px);
+}
+
+.buy-now-btn:disabled {
+  background-color: #d1d5db;
+  color: #6b7280;
+  cursor: not-allowed;
+}
+
+.buy-now-btn:disabled:hover {
+  background-color: #d1d5db;
+  transform: none;
+}
+
+
+
+@media (max-width: 640px) {
+  .action-buttons {
+    flex-direction: column;
+  }
+  
+  .add-to-cart-btn, .buy-now-btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+  }
+  
+  
+}

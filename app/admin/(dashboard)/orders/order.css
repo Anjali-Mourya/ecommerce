@@ -1,0 +1,87 @@
+.orders-page.admin {
+  padding: 20px;
+  font-family: "Inter", sans-serif;
+  background: #f8f9fb;
+  min-height: 100vh;
+}
+
+.orders-page.admin h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.orders-table th,
+.orders-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.orders-table th {
+  background: #f3f4f6;
+  color: #444;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.orders-table tr:hover {
+  background: #fafafa;
+}
+
+.reply-box {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reply-box input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.reply-box button {
+  padding: 8px 12px;
+  background: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.reply-box button:hover {
+  background: #0059c9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .orders-table {
+    font-size: 13px;
+  }
+
+  .reply-box {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reply-box button {
+    width: 100%;
+  }
+}

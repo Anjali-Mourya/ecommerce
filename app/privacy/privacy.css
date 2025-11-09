@@ -1,0 +1,41 @@
+.main-container {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* Hero */
+.privacy-hero {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.privacy-hero h1 {
+  font-size: 2.5rem;
+}
+
+.privacy-hero p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Content */
+.privacy-content {
+  padding: 4rem 1.5rem;
+  color: #444;
+}
+
+.privacy-content h2 {
+  color: #222;
+}
+
+.privacy-content p {
+  margin-bottom: 1.2rem;
+}
+
+@media (min-width: 768px) {
+  .privacy-content {
+    padding: 6rem 3rem;
+  }
+}
