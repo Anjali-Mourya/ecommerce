@@ -73,39 +73,48 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   /* --------------------------------------------------------------
      2. GLOBAL REDIRECT GUARD (uses current pathname)
      -------------------------------------------------------------- */
-  useEffect(() => {
-    if (loading) return;
+ useEffect(() => {
+  if (loading || role === null) return; // wait until role known
 
-    const adminPages = [
-      "/admin/dashboard",
-      "/admin/orders",
-      "/admin/profile",
-      "/admin/products",
-      "/admin/auth",
-      "/admin/login",
-    ];
+  const adminPages = [
+    "/admin/dashboard",
+    "/admin/orders",
+    "/admin/profile",
+    "/admin/products",
+    "/admin/auth",
+    "/admin/login",
+  ];
 
-    // Admin on unknown /admin/* → go to dashboard
-    if (role === "admin" && pathname.startsWith("/admin") && !adminPages.includes(pathname)) {
-      router.replace("/admin/dashboard");
-    }
-    // Non-admin on any /admin/* → kick out
-   else if (
-  role !== "admin" &&
-  pathname.startsWith("/admin") &&
-  pathname !== "/admin/auth"
-) {
-  router.replace("/");
-}
+  // Admin redirect to dashboard if route is unknown
+  if (role === "admin" && pathname.startsWith("/admin") && !adminPages.includes(pathname)) {
+    router.replace("/admin/dashboard");
+  }
+  // Non-admin users cannot access admin pages
+  else if (role !== "admin" && pathname.startsWith("/admin") && pathname !== "/admin/auth") {
+    router.replace("/");
+  }
+}, [role, loading, pathname, router]);
 
-  }, [role, loading, router, pathname]); // ← DEPEND ON pathname
 
   /* --------------------------------------------------------------
      3. login – DO NOT redirect
      -------------------------------------------------------------- */
-  const login = async (email: string, password: string) => {
-    await signInWithEmailAndPassword(auth, email, password);
-  };
+const login = async (email: string, password: string) => {
+  // Try login
+  const cred = await signInWithEmailAndPassword(auth, email, password);
+  const firebaseUser = cred.user;
+
+  // Fetch role from database
+  const snap = await get(ref(database, `users/${firebaseUser.uid}/role`));
+  const dbRole = snap.exists() ? snap.val() : "user";
+
+  // If ADMIN but trying to login from USER login page → BLOCK
+  if (dbRole === "admin" && pathname !== "/admin/auth") {
+    await signOut(auth);
+    throw new Error("Admins cannot login from the user login page.");
+  }
+};
+
 
   /* --------------------------------------------------------------
      4. signup – create + login
@@ -138,10 +147,17 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, role, loading, login, signup, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  <AuthContext.Provider value={{ user, role, loading, login, signup, logout }}>
+    {loading ? (
+      <div className="flex justify-center items-center h-screen">
+        <p>Loading...</p>
+      </div>
+    ) : (
+      children
+    )}
+  </AuthContext.Provider>
+);
+
 }
 
 export function useAuth() {
