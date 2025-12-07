@@ -150,7 +150,10 @@ const login = async (email: string, password: string) => {
   <AuthContext.Provider value={{ user, role, loading, login, signup, logout }}>
     {loading ? (
       <div className="flex justify-center items-center h-screen">
+        <div className="loading-screen">
+        <div className="loading-spinner"></div>
         <p>Loading...</p>
+        </div>
       </div>
     ) : (
       children
